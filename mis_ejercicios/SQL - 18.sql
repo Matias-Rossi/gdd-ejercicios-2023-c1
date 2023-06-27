@@ -35,7 +35,7 @@ SELECT
 		SELECT TOP 1 fact_cliente FROM factura 
 		JOIN item_factura ON item_tipo+item_sucursal+item_numero=fact_tipo+fact_sucursal+fact_numero
 		JOIN producto ON prod_codigo=item_producto
-		WHERE prod_rubro=rubr_id AND fact_fecha >= DATEADD(day, 30, CAST('2012-01-01' AS DATETIME))--GETDATE())
+		WHERE prod_rubro=rubr_id AND fact_fecha >= DATEADD(day, -30, CAST('2012-01-01' AS DATETIME))--GETDATE())
 		GROUP BY fact_cliente
 		ORDER BY SUM(item_cantidad) DESC
 	), 'Sin ventas') cliente
