@@ -51,7 +51,7 @@ FROM Factura F
 		ON E.empl_codigo = F.fact_vendedor
 
 GROUP BY YEAR(F.fact_fecha),E.empl_codigo,E.empl_nombre,E.empl_apellido--,F.fact_numero+F.fact_tipo+F.fact_sucursal
-ORDER BY 2,(
+ORDER BY 1,(
 			SELECT COUNT(DISTINCT item_cantidad)
 			FROM Item_Factura
 				INNER JOIN Factura
